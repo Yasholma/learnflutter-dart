@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,9 +8,30 @@ void test() {
   // final List<String> names = ['Script', 'Evans', 'Codexy'];
   // var from = names.firstWhere((element) => element == 'Evans');
   // names.add('Demzy');
+
   // const sets = {'name', 'bola'};
+
   // final mapPerson = {'name': 'CodeXy', 'age': 27};
   // mapPerson['role'] = 'Fullstack';
+
+  // String? name = 'james';
+  // List<String?>? fruits = ['apple', 'banana', null];
+  // Map<String, String?> dem = {'name': 'bola', 'age': null};
+
+  const String? fname = null;
+  const String? mname = null;
+  const String? lname = 'Bola';
+
+  const fnnv = fname ?? mname ?? lname;
+}
+
+void nullDem(String? fname, String? lname) {
+  String? preffName = fname;
+  preffName ??= lname;
+}
+
+void testNull(List<String>? names) {
+  // final length = names?.length ?? 1;
 }
 
 class MyApp extends StatelessWidget {
@@ -21,7 +40,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    test();
+    // test();
+    // nullDem(null, 'Bola');
+    testNull([]);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
