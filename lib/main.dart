@@ -4,34 +4,42 @@ void main() {
   runApp(const MyApp());
 }
 
+enum Status { active, inActive }
+
+class Person {
+  final String name;
+  Person(this.name);
+
+  void run() {
+    print('$name is running');
+  }
+
+  void sleep() {
+    print('sleeping');
+  }
+}
+
+class Vehicle {
+  String name;
+  int noOfTires;
+
+  Vehicle(this.name, this.noOfTires);
+
+  void run() {
+    print('$name is running with $noOfTires tires');
+  }
+}
+
+class Bike extends Vehicle {
+  Bike(String name, int noOfTires) : super(name, noOfTires);
+}
+
 void test() {
-  // final List<String> names = ['Script', 'Evans', 'Codexy'];
-  // var from = names.firstWhere((element) => element == 'Evans');
-  // names.add('Demzy');
+  // final person = Person('Mike');
+  // person.run();
 
-  // const sets = {'name', 'bola'};
-
-  // final mapPerson = {'name': 'CodeXy', 'age': 27};
-  // mapPerson['role'] = 'Fullstack';
-
-  // String? name = 'james';
-  // List<String?>? fruits = ['apple', 'banana', null];
-  // Map<String, String?> dem = {'name': 'bola', 'age': null};
-
-  const String? fname = null;
-  const String? mname = null;
-  const String? lname = 'Bola';
-
-  const fnnv = fname ?? mname ?? lname;
-}
-
-void nullDem(String? fname, String? lname) {
-  String? preffName = fname;
-  preffName ??= lname;
-}
-
-void testNull(List<String>? names) {
-  // final length = names?.length ?? 1;
+  final myBike = Bike('Honda', 4);
+  myBike.run();
 }
 
 class MyApp extends StatelessWidget {
@@ -40,9 +48,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // test();
-    // nullDem(null, 'Bola');
-    testNull([]);
+    test();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
