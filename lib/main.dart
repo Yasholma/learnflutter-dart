@@ -1,13 +1,18 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-
-String getFullName(String firstname, String lastname) {
-  return '$firstname $lastname';
-}
-
-String printName() => 'Hello World';
 
 void main() {
   runApp(const MyApp());
+}
+
+void test() {
+  // final List<String> names = ['Script', 'Evans', 'Codexy'];
+  // var from = names.firstWhere((element) => element == 'Evans');
+  // names.add('Demzy');
+  // const sets = {'name', 'bola'};
+  // final mapPerson = {'name': 'CodeXy', 'age': 27};
+  // mapPerson['role'] = 'Fullstack';
 }
 
 class MyApp extends StatelessWidget {
@@ -16,6 +21,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    test();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -69,7 +75,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    print(getFullName('Codxy', 'Holma'));
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
