@@ -4,32 +4,38 @@ void main() {
   runApp(const MyApp());
 }
 
-class Cat {
-  final String name;
-  Cat(this.name);
+Future<int> heavyFutureThatMultipliesByTwo(int a) {
+  return Future.delayed(const Duration(seconds: 3), () => 2 * a);
 }
 
-extension Run on Cat {
-  void run() {
-    print('Cat $name is running');
+void testFuture() async {
+  final result = await heavyFutureThatMultipliesByTwo(4);
+  print(result);
+}
+
+Stream<String> getName() {
+  // return Stream.periodic(const Duration(seconds: 1), (int a) => '$a hello');
+  return Stream.value('Hello');
+}
+
+void testStream() async {
+  await for (final value in getName()) {
+    print(value);
   }
 }
 
-class Person {
-  String firstName, lastName;
-  Person(this.firstName, this.lastName);
+Iterable<int> getNums() sync* {
+  yield 1;
 }
 
-extension FullName on Person {
-  String get fullName => '$firstName $lastName';
+class Pair<A, B> {
+  final A value1;
+  final B value2;
+  Pair(this.value1, this.value2);
 }
 
 void test() {
-  final meow = Cat('Dojo');
-  meow.run();
-
-  final person = Person('John', 'Doe');
-  print(person.fullName);
+  print(getNums());
 }
 
 class MyApp extends StatelessWidget {
