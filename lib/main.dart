@@ -4,42 +4,32 @@ void main() {
   runApp(const MyApp());
 }
 
-enum Status { active, inActive }
+class Cat {
+  final String name;
+  Cat(this.name);
+}
+
+extension Run on Cat {
+  void run() {
+    print('Cat $name is running');
+  }
+}
 
 class Person {
-  final String name;
-  Person(this.name);
-
-  void run() {
-    print('$name is running');
-  }
-
-  void sleep() {
-    print('sleeping');
-  }
+  String firstName, lastName;
+  Person(this.firstName, this.lastName);
 }
 
-class Vehicle {
-  String name;
-  int noOfTires;
-
-  Vehicle(this.name, this.noOfTires);
-
-  void run() {
-    print('$name is running with $noOfTires tires');
-  }
-}
-
-class Bike extends Vehicle {
-  Bike(String name, int noOfTires) : super(name, noOfTires);
+extension FullName on Person {
+  String get fullName => '$firstName $lastName';
 }
 
 void test() {
-  // final person = Person('Mike');
-  // person.run();
+  final meow = Cat('Dojo');
+  meow.run();
 
-  final myBike = Bike('Honda', 4);
-  myBike.run();
+  final person = Person('John', 'Doe');
+  print(person.fullName);
 }
 
 class MyApp extends StatelessWidget {
